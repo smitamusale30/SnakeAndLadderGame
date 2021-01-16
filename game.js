@@ -8,10 +8,10 @@ function dice()
     while(playerPostion<100)
     {
         die=Math.floor(Math.random()*6)+1;
-        console.log(die);
+        console.log("Dice:  "+die);
     
         move=option[Math.floor(Math.random()*option.length)];
-        console.log(move);
+        console.log("The Move:  "+move);
 
         if(move=="NoPlay")
         {
@@ -19,7 +19,15 @@ function dice()
         }
         else if(move=="Ladder")
         {
-            playerPostion=playerPostion+die;
+            let temp=playerPostion+die;
+            if(temp>100)
+            {
+                playerPostion=playerPostion;
+            }
+            else
+            {
+                playerPostion=playerPostion+die;
+            }
         }
         else 
         {
@@ -31,7 +39,8 @@ function dice()
             {
                 playerPostion=playerPostion-die;
             } 
-        }
+        } 
+        console.log("Player at The position:  "+playerPostion);
     } 
     return playerPostion;
 }

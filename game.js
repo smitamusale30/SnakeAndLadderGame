@@ -5,31 +5,34 @@ var option=["NoPlay","Ladder","Snake"];
 let move='';
 function dice()
 {
-    die=Math.floor(Math.random()*6)+1;
-    console.log(die);
+    while(playerPostion<100)
+    {
+        die=Math.floor(Math.random()*6)+1;
+        console.log(die);
     
-    move=option[Math.floor(Math.random()*option.length)];
-    console.log(move);
+        move=option[Math.floor(Math.random()*option.length)];
+        console.log(move);
 
-    if(move=="NoPlay")
-    {
-        playerPostion=playerPostion;
-    }
-    else if(move=="Ladder")
-    {
-        playerPostion=playerPostion+die;
-    }
-    else 
-    {
-        if(playerPostion<=START)
+        if(move=="NoPlay")
         {
-            playerPostion=START;
+            playerPostion=playerPostion;
         }
-        else
+        else if(move=="Ladder")
         {
-            playerPostion=playerPostion-die;
+            playerPostion=playerPostion+die;
         }
-    }
+        else 
+        {
+            if(playerPostion<=START)
+            {
+                playerPostion=START;
+            }
+            else
+            {
+                playerPostion=playerPostion-die;
+            } 
+        }
+    } 
     return playerPostion;
 }
 console.log(dice());

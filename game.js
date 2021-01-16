@@ -2,13 +2,14 @@ console.log("Welcome !!!");
 const START=0;
 let die=0,playerPostion=0;
 var option=["NoPlay","Ladder","Snake"];
-let move='';
+let move='',diceThrown=0;;
 function dice()
 {
     while(playerPostion<100)
     {
         die=Math.floor(Math.random()*6)+1;
         console.log("Dice:  "+die);
+        diceThrown++;
     
         move=option[Math.floor(Math.random()*option.length)];
         console.log("The Move:  "+move);
@@ -42,6 +43,7 @@ function dice()
         } 
         console.log("Player at The position:  "+playerPostion);
     } 
+    console.log("The number of times the dice was played to win the game:  "+diceThrown);
     return playerPostion;
 }
 console.log(dice());
